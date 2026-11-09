@@ -1,7 +1,8 @@
 import uuid
 from langgraph.graph import StateGraph, END
 from orchestrator.state import PipelineState
-from orchestrator.agents_mock import data_node, training_node, qa_node, release_node
+from agents.data.agent import data_node
+from orchestrator.agents_mock import training_node, qa_node, release_node
 
 def route(next_node):
     return lambda s: END if s.get("status") == "failed" else next_node
