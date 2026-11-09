@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Projet
+.env
+*.pkl
+data/
+mlruns/
+logs/
