@@ -8,4 +8,5 @@ class PipelineState(TypedDict, total=False):
     model_uri: str
     metrics: dict
     qa_report: dict
+    data_report: dict
     errors: list
