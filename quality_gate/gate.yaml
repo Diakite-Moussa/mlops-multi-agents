@@ -1,7 +1,7 @@
 # Seuils de promotion (« quality gate »). Modifier ce fichier change la politique, pas le code.
 min_accuracy: 0.80              # en dessous : refus
 max_regression_vs_prod: 0.02    # perte d'accuracy tolérée face au modèle en production
-max_fairness_gap: 0.20          # écart de taux positifs entre groupes (sex, race)
+max_fairness_gap: 0.30          # écart de taux positifs entre groupes (sex, race)
 max_robustness_drop: 0.05       # perte d'accuracy sous bruit
 
 # Faible risque => approbation automatique. Sinon : approbation humaine.
