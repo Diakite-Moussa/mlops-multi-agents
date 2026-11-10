@@ -41,7 +41,7 @@ cp .env.example .env
 Lancez MinIO et MLflow avec Docker Compose :
 
 ```bash
-docker compose -f infra/docker-compose.yml up -d
+docker compose --env-file .env -f infra/docker-compose.yml up -d --build
 ```
 
 - **MinIO Console** : [http://localhost:9001](http://localhost:9001) (identifiants par défaut : `minioadmin` / `change-me-12345`)
@@ -51,10 +51,10 @@ docker compose -f infra/docker-compose.yml up -d
 
 ```bash
 # Création des buckets MinIO (datasets, models, mlflow)
-python scripts/create_buckets.py
+python -m scripts.create_buckets
 
 # Ingestion du jeu de données brut depuis OpenML vers MinIO
-python scripts/upload_raw_dataset.py
+python -m scripts.upload_raw_dataset
 ```
 
 ---
