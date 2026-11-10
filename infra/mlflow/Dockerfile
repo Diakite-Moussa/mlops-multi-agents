@@ -1,2 +1,2 @@
 FROM python:3.12-slim
-RUN pip install --no-cache-dir mlflow boto3
+RUN pip install --no-cache-dir mlflow==3.18.0 boto3

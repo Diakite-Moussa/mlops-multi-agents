@@ -8,7 +8,10 @@ def test_pipeline_success(monkeypatch):
     assert run()["status"] == "done"
 
 def test_pipeline_stops_on_failure(monkeypatch):
-    monkeypatch.setenv("FAIL_AT", "training")
+    def boom(*a, **k):
+        raise RuntimeError("échec simulé dans training")
+    monkeypatch.setattr("agents.training.agent.run_training", boom)
     result = run()
     assert result["status"] == "failed"
-    assert "model_uri" not in result   # QA et Release n'ont pas tourné
+    assert "model_uri" not in result
+    assert "qa_report" not in result   # QA et Release n'ont pas tourné
